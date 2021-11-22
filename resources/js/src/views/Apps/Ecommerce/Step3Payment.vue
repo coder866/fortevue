@@ -10,7 +10,7 @@
         <div class="iq-card-body">
           <div class="d-flex justify-content-between align-items-center">
             <div class="d-flex justify-content-between align-items-center">
-              <img src="images/booking/cart.png" alt="" height="40" width="50">
+              <img src="@/assets/images/booking/cart.png" alt="" height="40" width="50">
               <span>US Unlocked Debit Card 12XX XXXX XXXX 0000</span>
             </div>
             <span>Nik John</span>

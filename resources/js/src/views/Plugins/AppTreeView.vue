@@ -78,51 +78,7 @@ data(){
                 <kbd class="bg-dark">
                   <!--                  <a href="javascript:void(0)" v-b-tooltip.hover data-copy-target="#customize-treeview" title="Copy" class="text-white float-right" data-copy="true">Copy</a>-->
                   <pre class="text-white" id="customize-treeview"><code>
-&#x3C;template&#x3E;
-    &#x3C;TreeView
-      :item=&#x22;items&#x22;
-    &#x3E;
-      &#x3C;template v-slot:groupOpened&#x3E;
-        &#x3C;img :src=&#x22;require(&#x27;./assets/images/treeview/t-open-folder.png&#x27;)&#x22; alt=&#x22;&#x22; class=&#x22;img-fluid height-25 mb-1&#x22;&#x3E;
-      &#x3C;/template&#x3E;
-      &#x3C;template v-slot:groupClosed&#x3E;
-        &#x3C;img :src=&#x22;require(&#x27;./assets/images/treeview/t-close-folder.png&#x27;)&#x22; alt=&#x22;&#x22; class=&#x22;img-fluid height-25 mb-1&#x22;&#x3E;
-      &#x3C;/template&#x3E;
-      &#x3C;template v-slot:item&#x3E;
-        &#x3C;img :src=&#x22;require(&#x27;./assets/images/treeview/t-files.png&#x27;)&#x22; alt=&#x22;&#x22; class=&#x22;img-fluid height-25 mb-1&#x22;&#x3E;
-      &#x3C;/template&#x3E;
-    &#x3C;/TreeView&#x3E;
-&#x3C;/template&#x3E;
-&#x3C;script&#x3E;
-import TreeView from '@components/core/treeview/TreeView'
-export default {
-components: { TreeView },
-data(){
-  return {
-      items: {
-        name: 'Vue',
-        children: [
-          {
-            name: 'public',
-            children: [
-              { name: 'index.html' }
-            ]
-          },
-          {
-            name: 'src',
-            children: [
-              { name: 'assets' },
-              { name: 'views' }
-            ]
-          },
-          { name: '.vue.config.js' }
-        ]
-      }
-    }
-   }
-  }
-&#x3C;/script&#x3E;
-</code></pre>
+                  </code></pre>
                 </kbd>
               </div>
             </b-collapse>
@@ -130,21 +86,21 @@ data(){
               <TreeView :item="treeData" :isOpened="true">
                 <template v-slot:groupOpened>
                   <img
-                    :src="require('../../assets/images/treeview/t-open-folder.png')"
+                    src="@/assets/images/treeview/t-open-folder.png"
                     alt
                     class="img-fluid height-25 mb-1"
                   />
                 </template>
                 <template v-slot:groupClosed>
                   <img
-                    :src="require('../../assets/images/treeview/t-close-folder.png')"
+                    :src="images.CloseFolderImage"
                     alt
                     class="img-fluid height-25 mb-1"
                   />
                 </template>
                 <template v-slot:item>
                   <img
-                    :src="require('../../assets/images/treeview/t-files.png')"
+                    :src="images.FilesImage"
                     alt
                     class="img-fluid height-25 mb-1"
                   />
@@ -158,6 +114,9 @@ data(){
   </b-container>
 </template>
 <script>
+import OpenFolderImage from '@/assets/images/treeview/t-open-folder.png';
+import CloseFolderImage from '@/assets/images/treeview/t-close-folder.png';
+import FilesImage from '@/assets/images/treeview/t-files.png';
 import TreeView from "../../components/core/treeview/TreeView.vue";
 import { core } from "../../config/pluginInit";
 export default {
@@ -168,6 +127,11 @@ export default {
   },
   data() {
     return {
+      images:[
+        OpenFolderImage,
+        CloseFolderImage,
+        FilesImage
+      ],
       treeData: {
         name: "Laravel+Vue",
         children: [

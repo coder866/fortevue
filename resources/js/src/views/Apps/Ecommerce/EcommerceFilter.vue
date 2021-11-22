@@ -114,7 +114,7 @@
 <script>
 import VueSlider from 'vue-slider-component'
 import { formatNumber } from '../../../Utils/fliter'
-import ResetFilter from './ResetFilter'
+import ResetFilter from './ResetFilter.vue'
 export default {
   name: 'EcommerceFilter',
   components: {

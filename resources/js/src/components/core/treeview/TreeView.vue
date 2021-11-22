@@ -68,7 +68,7 @@
 </template>
 
 <script>
-import TreeView from './TreeView'
+import TreeView from './TreeView.vue'
 
 export default {
   name: 'TreeView',

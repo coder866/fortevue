@@ -16,7 +16,7 @@
   </ul>
 </template>
 <script>
-import List from './CollapseMenu'
+import List from './CollapseMenu.vue'
 import { core } from '../../../config/pluginInit'
 export default {
   name: 'List',

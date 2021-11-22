@@ -14,19 +14,31 @@ export default ({ command }) => ({
         port: 3001
     },
     resolve: {
-        alias: {
-            "~": path.resolve("node_modules"),
-            // "@themeConfig": path.resolve(
-            //     __dirname,
-            //     "resources/js/themeConfig.js"
-            // ),
+        modules: ['node_modules'],
+        alias:[
+            {
+                find: /^~.+/,
+                replacement: (val) => {
+                  return val.replace(/^~/, "");
+                },
+            },            {
+                find: "@",
+                replacement: (val) => {
+                  return val.replace("@", "resources/js/src");
+                },
+            },
+            //{
+            //"@": path.resolve(__dirname,"resources/js/src"),
             // "@core": path.resolve(__dirname, "resources/js/src/@core"),
             // "@validations": path.resolve(
             //     __dirname,
             //     "resources/js/src/@core/utils/validations/validations.js"
             // ),
             // "@axios": path.resolve(__dirname, "resources/js/src/libs/axios"),
-        },
+        //},
+        
+    ],
+        
     },
      plugins: [createVuePlugin()],
 });
